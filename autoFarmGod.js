@@ -54,7 +54,7 @@ function clicarBotaoPlanFarms() {
               executando = false;
 
             }
-          }, i * 3000);
+          }, i * 1000);
         }
       } else {
         console.warn("Tabela ou linhas não encontradas.");
@@ -104,4 +104,4 @@ function executarFarmGod() {
 }
 
 executarFarmGod();
-setInterval(executarFarmGod, 300000); // Roda a cada 1h
+setInterval(executarFarmGod, 300000); // Roda a cada 5 minutos
