@@ -16,7 +16,7 @@ function esperarElemento(seletor, textoOpcional, callback, tentativas = 30) {
       clearInterval(intervalo);
       console.warn("Elemento não apareceu a tempo:", seletor);
     }
-  }, 5000);
+  }, 10000);
 }
 
 function clicarBotaoPlanFarms() {
@@ -54,13 +54,13 @@ function clicarBotaoPlanFarms() {
               executando = false;
 
             }
-          }, i * 1000);
+          }, i * 3000);
         }
       } else {
         console.warn("Tabela ou linhas não encontradas.");
         executando = false;
       }
-    }, 5000);
+    }, 10000);
 
 
   } else {
@@ -70,7 +70,7 @@ function clicarBotaoPlanFarms() {
 }
 
 function executarFarmGod() {
-  if (executando) {
+  if (executando && executando) {
     console.log("Execução já em andamento, aguardando finalizar...");
     return;
   }
@@ -91,7 +91,7 @@ function executarFarmGod() {
     esperarElemento('a.quickbar_link', 'FARMGOD', (link) => {
       setTimeout(() => {
         link.click();
-      }, 5000);
+      }, 10000);
 
       console.log('[Fase 2] Segundo clique no FARMGOD feito. Aguardando pop-up...');
 
@@ -101,7 +101,12 @@ function executarFarmGod() {
       });
     });
   }
+
+  setTimeout(() => {
+    console.log("⏳ Tempo de espera finalizado. Recarregando a página...");
+    window.location.reload(); // Faz o refresh da página
+  }, 180000);
 }
 
 executarFarmGod();
-setInterval(executarFarmGod, 300000); // Roda a cada 5 minutos
+setInterval(executarFarmGod, 180000); // Roda a cada 1h
