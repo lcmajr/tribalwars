@@ -102,10 +102,6 @@ function executarFarmGod() {
     });
   }
 
-  setTimeout(() => {
-    console.log("⏳ Tempo de espera finalizado. Recarregando a página...");
-    window.location.reload(); // Faz o refresh da página
-  }, 180000);
 }
 
 executarFarmGod();
